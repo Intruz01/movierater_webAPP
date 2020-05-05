@@ -4,6 +4,7 @@ from .models import Movie
 from rest_framework.response import Response
 
 
+
 class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
