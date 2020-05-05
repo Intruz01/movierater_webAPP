@@ -2,6 +2,6 @@
 
 <ul> 
   <li *ngFor="let movie of movies">
-    <h2>{{ movie.title }}</h2>
+    <h2 on-click="movieClicked(movie)">{{ movie.title }}</h2>
   </li>
 </ul>
