@@ -1,7 +1,30 @@
-<h2> List of movies </h2>
+<div class="jumbotron">
+  <h1 class="display-4">List of movies:</h1>
+  <hr class="my-4">
+    <ul *ngFor="let movie of movies">
+      <h2 on-click="movieClicked(movie)">{{ movie.title }}</h2>
+    </ul>
 
-<ul> 
-  <li *ngFor="let movie of movies">
-    <h2 on-click="movieClicked(movie)">{{ movie.title }}</h2>
-  </li>
-</ul>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="selectedMovie.title"/>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="selectedMovie.description"/>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Year</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="selectedMovie.year"/>
+  </div>
+
+  <button class="btn btn-success" (click)="createMovie()"> Add Movie </button> 
+  <button class="btn btn-primary" *ngIf="selectedMovie.id != -1" (click)="updateMovie()"> Update </button>
+  <button class="btn btn-danger" *ngIf="selectedMovie.id != -1" (click)="deleteMovie()"> Delete </button>  
+</div>
